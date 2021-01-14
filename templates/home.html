@@ -1,0 +1,102 @@
+ {% extends "layout.html" %}
+{% block body %}
+<style>
+.container1 {
+  display: flex;
+  justify-content: center;
+}
+.example2 {
+  background: url('  {{ url_for('static', filename='car1.jpg') }}   ');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+input[type=text], select, textarea {
+  width: 95%;
+  padding: 1.5%;
+  border: 2% solid #ccc;
+  border-radius: 5%;
+  resize: vertical;
+}
+.hi{ 
+	color: #6f42c1;
+}
+</style>
+  <body class="example2">
+
+    <form action="/predict" method="post">
+ <div class="container mb-0 flex">
+ 	<div class="form-group row container1" >
+	  <div class="col-12 col-sm-6 col-md-4" >
+	    <label class="text-primary font-weight-bold"><h3 class="hi">{{ output}} <span class="badge bg-secondary">{{output2}} </span></h3></label>
+	   
+	  </div>
+	</div>
+	 <div class="form-group row container1" >
+	  <div class="col-12 col-sm-6 col-md-4" >
+	    <label class="text-primary font-weight-bold"><h4>What is the Showroom Price?(In lakhs)</h4></label>
+	    <input class="form-control"  type="text" id="show_price" name="show_price">
+	  </div>
+	</div>
+	<div class="form-group row  container1 mb-0">
+	  <div class="col-12 col-sm-6 col-md-4">
+	    <label class="text-primary"><h4>How Many Kilometers Drived ?</h4></label>
+	    <input class="form-control" type="text" id="Kilometers" name="Kilometers">
+	  </div>
+	</div>
+	<div class="form-group row container1 mb-0">
+	  <div class="col-12 col-sm-6 col-md-4" >
+	    <label class="text-primary"><h4>Transmission type</h4></label>
+	    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="trans_type">
+         <option>Manual</option>
+         <option>Automatic</option>
+        </select>
+	  </div>
+	</div>
+	<div class="form-group row  container1 mb-0">
+	  <div class="col-12 col-sm-6 col-md-4">
+	    <label class="text-primary"><h4>How much owners previously had the car ?</h4></label>
+	    <select class="form-select" name="owners">
+                      <option>0</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+        </select>
+	  </div>
+	</div>
+	<div class="form-group row container1 mb-0">
+	  <div class="col-12 col-sm-6 col-md-4" >
+	    <label class="text-primary"><h4>What Is the Fuel type ?</h4></label>
+	    <select class="form-select" name="fuel">
+                      <option>Petrol</option>
+                      <option>Diesel</option>
+                      <option>CNG</option>
+                     
+         </select>
+	  </div>
+	</div>
+	<div class="form-group row  container1 mb-0">
+	  <div class="col-12 col-sm-6 col-md-4">
+	    <label class="text-primary"><h4>Are you A Dealer or Individual ?</h4></label>
+	    <select class="form-select" name="sealer">
+                      <option>Dealer</option>
+                      <option>Individual</option>
+        </select>
+	  </div>
+	</div>
+	<div class="form-group row container1 mb-0" >
+	  <div class="col-12 col-sm-6 col-md-4" >
+	    <label class="text-primary"><h4>Year</h4></label>
+	    <input class="form-control" id="ex" type="text" id="year" name="year">
+	  </div>
+	</div>
+	
+	<div class="form-group row container1 p-3" align="center">
+	  <div class="col-12 col-sm-6 col-md-4" >
+	   <button type="submit" class="btn btn-success">Calculate Price</button>
+	  </div>
+	</div>
+	
+</div>
+	</form>
+</body>
+{% endblock %}
