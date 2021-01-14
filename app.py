@@ -14,7 +14,7 @@ model = pickle.load(open('random_forest_regression_model.pkl', 'rb'))
 @app.route("/", methods=['GET'])
 def index():
 
-    return render_template("home.html")
+    return render_template("index.html")
 
 standard_to = StandardScaler()
 
@@ -59,13 +59,13 @@ def predict():
         output = output
         if output<0:
 
-            return render_template('home.html',output="Sorry you cannot sell this car")
+            return render_template('index.html',output="Sorry you cannot sell this car")
         else:
             flash(output)
-            return render_template('home.html',output = "You Can Sell The Car at",output2=" {} Lakhs".format(output))
+            return render_template('index.html',output = "You Can Sell The Car at",output2=" {} Lakhs".format(output))
     else:
 
-        return render_template('home.html')
+        return render_template('index.html')
 
 
 
